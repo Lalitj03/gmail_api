@@ -53,12 +53,13 @@ def CreateMessage(sender, to, subject, msgHtml, msgPlain):
 
 def main():
 
-    to = "XXXXXXXXXX@gmail.com"
-    sender = "XXXXXXXXXX.com"
-    subject = "#########"
+    to = "lalit.sonu06@gmail.com"
+    sender = "lalit.sonu03@gmail.com"
+    subject = "nothing"
     msgHtml = "Hi<br/><br/><br/>Cheers"
     msgPlain = "Hi\nPlain Email"
     SendMessage(sender, to, subject, msgHtml, msgPlain)
+    # GET https://www.googleapis.com/gmail/v1/users/me/messages?q="in:sent after:2014/01/01 before:2014/01/30"
 
 if __name__ == '__main__':
     main()
