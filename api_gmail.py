@@ -6,6 +6,7 @@ import base64
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from apiclient import errors, discovery
+import sys
 
 SCOPES = 'https://www.googleapis.com/auth/gmail.send'
 CLIENT_SECRET_FILE = 'client_id.json'
@@ -51,15 +52,13 @@ def CreateMessage(sender, to, subject, msgHtml, msgPlain):
     msg.attach(MIMEText(msgHtml, 'html'))
     return {'raw': base64.urlsafe_b64encode(msg.as_string())}
 
-def main():
-
-    to = "lalit.sonu06@gmail.com"
-    sender = "lalit.sonu03@gmail.com"
-    subject = "nothing"
-    msgHtml = "Hi<br/><br/><br/>Cheers"
+if __name__ == '__main__':
+    to = sys.argv[1]
+    sender = "me"
+    subject = sys.argv[2]
+    msg_filename = sys.argv[3]
+    msgHtml = None
+    with open(msg_filename, 'r') as f:
+        msgHtml = f.read()
     msgPlain = "Hi\nPlain Email"
     SendMessage(sender, to, subject, msgHtml, msgPlain)
-    # GET https://www.googleapis.com/gmail/v1/users/me/messages?q="in:sent after:2014/01/01 before:2014/01/30"
-
-if __name__ == '__main__':
-    main()

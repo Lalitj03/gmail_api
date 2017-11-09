@@ -53,9 +53,9 @@ def CreateMessage(sender, to, subject, msgHtml, msgPlain):
 
 def main():
 
-    to = "###########@gmail.com"
-    sender = "##########@gmail.com"
-    subject = "########"
+    to = "lalit.jharbade3@gmail.com"
+    sender = "me"
+    subject = "subject"
     msgHtml = "Hi<br/><br/>Cheers"
     msgPlain = "Hi\nPlain Email"
     SendMessage(sender, to, subject, msgHtml, msgPlain)
